@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RestaurantDBContext>(options => options.UseSqlServer(ConfigurationBinder.GetConnectionString("DefaultConnrction")));
 
 var app = builder.Build();
 

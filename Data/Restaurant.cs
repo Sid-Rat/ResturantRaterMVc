@@ -1,0 +1,20 @@
+namespace RestaurantRaterMVC.Data
+{
+    public class Restaurant
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Location { get; set; }
+        public double Score
+        {
+            get
+            {
+                return ((byte)Ratings.Count ) 0 ? Ratings.Select(r => r.Score)Sum()/ Ratings.Count : 0;
+            }
+        }
+        public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
+    
+    }
+}
