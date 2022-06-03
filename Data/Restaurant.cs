@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace RestaurantRaterMVC.Data
 {
     public class Restaurant
@@ -11,7 +13,7 @@ namespace RestaurantRaterMVC.Data
         {
             get
             {
-                return ((byte)Ratings.Count ) 0 ? Ratings.Select(r => r.Score)Sum()/ Ratings.Count : 0;
+                return Ratings.Count > 0 ? Ratings.Select(r => r.Score).Sum()/ Ratings.Count : 0;
             }
         }
         public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
